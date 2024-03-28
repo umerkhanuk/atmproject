@@ -6,7 +6,7 @@ let machine = await inquirer.prompt({
   name: "pin",
 });
 
-let registerPin = 6508;
+let registerPin = 6762;
 let currentBalance = 30000;
 if (registerPin === machine.pin) {
   let operations = await inquirer.prompt([
@@ -34,7 +34,7 @@ if (registerPin === machine.pin) {
     ]);
     if (fastCash.amount <= currentBalance) {
       if (fastCash.confirmation === true) {
-        console.log((currentBalance -= fastCash.amount));
+        console.log((`Remaining Balance = ${currentBalance -= fastCash.amount}`));
       } else {
         console.log("If you want to proceed this transaction select YES");
       }
@@ -56,7 +56,7 @@ if (registerPin === machine.pin) {
     ]);
     if (cashWithdrawl.amount >= 1 && cashWithdrawl.amount <= currentBalance) {
       if (cashWithdrawl.confirmation === true) {
-        console.log((currentBalance -= cashWithdrawl.amount));
+        console.log((`Remaining Balance = ${currentBalance -= cashWithdrawl.amount}`));
       } else {
         console.log("If you want to proceed this transaction select YES");
       }
